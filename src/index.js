@@ -1,21 +1,15 @@
-const express = require("express")
-const cors = require("cors")
-require('dotenv').config()
-
-
-const authRoutes = require("./routes/auth.routes")
-
+const express = require('express')
 const app = express()
 
-// Middlewares
-app.use(cors())
 app.use(express.json())
 
-// Rutas
-app.use("/api/auth", authRoutes)
+// IMPORTAR RUTAS
+const authRoutes = require('./routes/auth.routes')
 
-// Servidor
-const PORT = 4000
+// USAR RUTAS
+app.use('/api/auth', authRoutes)
+
+const PORT = 5000
 app.listen(PORT, () => {
-    console.log(`corriendo en http://localhost:${PORT}`)
+console.log(` Backend corriendo en http://localhost:${PORT}`)
 })

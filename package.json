@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -22,11 +20,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
-  },
-
-  "scripts": {
-    "dev": "nodemon src/index.js"
   }
 }
-
-
