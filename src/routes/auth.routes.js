@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router()
 const authController = require('../controllers/auth.controller')
 
-// LOGIN
+
+// login
 router.post('/login', authController.login)
 
-// PERFIL (usuario logueado)
+// perfil (usuario logueado)
 router.get('/profile/:id', authController.profile)
 
 module.exports = router

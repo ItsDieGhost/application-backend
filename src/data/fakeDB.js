@@ -1,20 +1,18 @@
-const users = [
-    {
+let users = [
+{
     id: 1,
     username: "admin",
     password: "1234",
-    role: "admin",
-    email: "admin@myspot.com"
-    }
+    email: "admin@myspot.com",
+    role: "admin"
+},
+{
+    id: 2,
+    username: "user1",
+    password: "1234",
+    email: "user1@myspot.com",
+    role: "user"
+}
 ]
 
-const estacionamientos = []
-const reservas = []
-const pagos = []
-
-module.exports = {
-    users,
-    estacionamientos,
-    reservas,
-    pagos
-}
+module.exports = { users }
