@@ -1,6 +1,6 @@
 // src/data/fakeDB.js
 
-// 1. Definimos los datos iniciales
+// 1. Definimos los datos iniciales de usuarios
 let users = [
     {
         id: 1,
@@ -18,11 +18,14 @@ let users = [
     }
 ];
 
-// 2. Creamos el objeto unificado
+// 2. Creamos UN SOLO objeto unificado con todas las colecciones
 const db = {
-    users: users, // Usamos el array que definimos arriba
-    vehicles: [] 
+    users: users,
+    vehicles: [],
+    parkings: [],
+    incidents: [] // <--- Agregamos este array para los incidentes
 };
 
-// 3. Exportamos UN SOLO objeto que contiene todo
+
+// 3. Exportamos el objeto para que los controladores lo usen
 module.exports = db;
