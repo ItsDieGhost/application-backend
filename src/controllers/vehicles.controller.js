@@ -46,7 +46,7 @@ const updateVehicle = (req, res) => {
         return res.status(404).json({ message: "Vehículo no encontrado para actualizar" });
     }
 
-    // Actualizamos solo los campos que vengan en el body o mantenemos los actuales
+    // Areglo
     db.vehicles[index] = {
         ...db.vehicles[index],
         marca: marca || db.vehicles[index].marca,

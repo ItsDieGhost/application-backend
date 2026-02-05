@@ -1,31 +1,28 @@
-// src/data/fakeDB.js
-
-// 1. Definimos los datos iniciales de usuarios
 let users = [
     {
         id: 1,
         username: "admin",
-        password: "1234",
-        email: "admin@myspot.com",
+        password: "4a8f4s9g4h84hd6",
+        email: "hola@gmail.com",
         role: "admin"
     },
     {
         id: 2,
         username: "user1",
-        password: "1234",
+        password: "a68s12dfiad4",
         email: "user1@myspot.com",
         role: "user"
     }
 ];
 
-// 2. Creamos UN SOLO objeto unificado con todas las colecciones
+// constante que engloba todos
 const db = {
     users: users,
     vehicles: [],
     parkings: [],
-    incidents: [] // <--- Agregamos este array para los incidentes
+    incidents: []
 };
 
 
-// 3. Exportamos el objeto para que los controladores lo usen
+//  se exporta a los controladores
 module.exports = db;

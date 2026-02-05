@@ -20,7 +20,7 @@ const addParking = (req, res) => {
     if (!nombre || !ubicacion || !espacios || !pisos) {
         return res.status(400).json({ message: "Nombre, ubicación, espacios y pisos son obligatorios" });
     }
-
+// arreglo
     const newParking = {
         id: db.parkings.length > 0 ? db.parkings[db.parkings.length - 1].id + 1 : 1,
         nombre,
@@ -33,7 +33,7 @@ const addParking = (req, res) => {
     res.status(201).json({ message: "Estacionamiento creado con éxito", data: newParking });
 };
 
-// Actualizar
+// actualizar
 const updateParking = (req, res) => {
     const id = parseInt(req.params.id);
     const { nombre, ubicacion, espacios, pisos } = req.body;
@@ -52,7 +52,7 @@ const updateParking = (req, res) => {
     res.status(200).json({ message: "Actualizado correctamente", data: db.parkings[index] });
 };
 
-// Eliminar
+// eliminar estacionamiento
 const deleteParking = (req, res) => {
     const id = parseInt(req.params.id);
     const index = db.parkings.findIndex(p => p.id === id);
@@ -68,5 +68,5 @@ module.exports = {
     getParkingById,
     addParking,
     updateParking,
-    deleteVehicle: deleteParking // Corregido el nombre del export
+    deleteVehicle: deleteParking
 };

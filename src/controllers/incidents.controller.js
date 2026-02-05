@@ -5,7 +5,7 @@ const addIncident = (req, res) => {
     if (!placa || !hora || !dia || !descripcion) {
         return res.status(400).json({ message: "Todos los campos son obligatorios" });
     }
-
+// arreglo
     const newIncident = {
         id: db.incidents.length > 0 ? db.incidents[db.incidents.length - 1].id + 1 : 1,
         placa: placa.toUpperCase(),
@@ -22,7 +22,7 @@ const getAllIncidents = (req, res) => {
     res.status(200).json(db.incidents);
 };
 
-// --- NUEVO: Obtener un incidente por su ID específico ---
+// obtener por id
 const getIncidentById = (req, res) => {
     const id = parseInt(req.params.id);
     const incident = db.incidents.find(i => i.id === id);
@@ -36,7 +36,7 @@ const getIncidentsByVehicle = (req, res) => {
     res.status(200).json(filtered);
 };
 
-// --- NUEVO: Actualizar un incidente ---
+// actualizar incidente
 const updateIncident = (req, res) => {
     const id = parseInt(req.params.id);
     const { placa, hora, dia, descripcion } = req.body;
@@ -55,6 +55,7 @@ const updateIncident = (req, res) => {
     res.status(200).json({ message: "Incidente actualizado", data: db.incidents[index] });
 };
 
+// borrar incidentes
 const deleteIncident = (req, res) => {
     const id = parseInt(req.params.id);
     const index = db.incidents.findIndex(i => i.id === id);
@@ -67,8 +68,8 @@ const deleteIncident = (req, res) => {
 module.exports = {
     addIncident,
     getAllIncidents,
-    getIncidentById, // Agregado
+    getIncidentById,
     getIncidentsByVehicle,
-    updateIncident, // Agregado
+    updateIncident, 
     deleteIncident
 };
