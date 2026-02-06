@@ -1,20 +1,23 @@
-const { Pool } = require("pg")
+const { Pool } = require('pg')
+require('dotenv').config()
+
+const connectionString = process.env.DATABASE_URL || process.env.database_url || null
 
 const pool = new Pool({
-    host: "localhost",
-    password: "npg_RxPgNa2db1OQ",
-    database: "myspot",
-    port: 5432,
-    connectionString: process.env.database_url,
-    ssl: { rejectUnauthorized: false }
+    connectionString,
+    ssl: connectionString ? { rejectUnauthorized: false } : false
 })
 
 module.exports = pool
 
-pool.query("SELECT NOW()", (err, res) => {
-    if (err) {
-    console.error(" Error DB", err)
-    } else {
-    console.log(" PostgreSQL conectado:", res.rows[0])
-    }
-})
+if (connectionString) {
+    pool.query('SELECT NOW()', (err, res) => {
+        if (err) {
+            console.error('Error DB', err)
+        } else {
+            console.log('PostgreSQL conectado:', res.rows[0])
+        }
+    })
+} else {
+    console.warn('No DATABASE_URL provided — usando fake DB en memoria')
+}
